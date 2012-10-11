@@ -2,7 +2,7 @@
 import getpass, imaplib
 
 M = imaplib.IMAP4_SSL('imap.gmail.com')
-M.login(getpass.getuser(), getpass.getpass())
+M.login("gjxlu92@gmail.com", getpass.getpass())
 M.select()
 typ, data = M.search(None, '(UNSEEN)')
 for num in data[0].split():
