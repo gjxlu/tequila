@@ -6,8 +6,8 @@ M.login("gjxlu92@gmail.com", getpass.getpass())
 M.select()
 typ, data = M.search(None, '(UNSEEN)')
 for num in data[0].split():
-        typ, data = M.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT)])')
-        message = data[0][1].lstrip('Subject: ').strip()
+        typ, data = M.fetch(num, '(RFC822.SIZE BODY[HEADER.FIELDS (SUBJECT FROM)])')
+        message = data[0][1].lstrip('Subject: ').strip().lstrip('From: ').strip()
         print message
         engine=pyttsx.init()
         engine.say(message)
